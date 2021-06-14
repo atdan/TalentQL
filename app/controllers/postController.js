@@ -92,6 +92,9 @@ async function deletePost(req, res) {
         await Post.deleteOne({
             '_id': _post
         })
+        req.user.posts = req.user.posts.filter((post) => {
+            return post !== _post
+        })
 
         return apiResponse.successResponse(res, "Post removed")
     } catch (error) {
@@ -134,21 +137,21 @@ async function editPost(req, res) {
 /**
  * @DESC Get all posts
  */
-async function getAllPosts(req, res) {
-    try {
-        const posts = await Post.find()
-            //cache the request
-            .cache({
-                key: constants.ALL
-            })
+// async function getAllPosts(req, res) {
+//     try {
+//         const posts = await Post.find()
+//             //cache the request
+//             .cache({
+//                 key: req.user._id
+//             })
 
-        return apiResponse.successResponseWithData(res, "Gotten all posts", posts)
-    } catch (error) {
-        consola.error("Get all Posts", error.toString());
+//         return apiResponse.successResponseWithData(res, "Gotten all posts", posts)
+//     } catch (error) {
+//         consola.error("Get all Posts", error.toString());
 
-        return apiResponse.errorResponse(res, `${error}`);
-    }
-}
+//         return apiResponse.errorResponse(res, `${error}`);
+//     }
+// }
 
 /**
  * @DESC Get user posts
@@ -180,11 +183,7 @@ async function getSinglePost(req, res) {
                 _id: req.params.id
 
             })
-            // cache using redis
-            .cache({
-                key: req.params.id
-            })
-
+            
         return apiResponse.successResponseWithData(res, "Gotten post", post)
     } catch (error) {
         consola.error("Get single Post", error.toString());
@@ -199,7 +198,6 @@ module.exports = {
     createPost,
     deletePost,
     editPost,
-    getAllPosts,
     getUserPosts,
     getSinglePost
 }

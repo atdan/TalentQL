@@ -7,17 +7,19 @@ const config = require('../config/index');
 const auth = async (req, res, next) => {
 
     try {
-        if (!req.headers.authorization){
-            return apiResponse.forbiddenResponse(res, 'Authorization details are required');
+        if (!req.headers.authorization) {
+            return apiResponse.forbiddenResponse(res, 'Not Logged in ');
         }
         const token = req.headers.authorization.split(" ")[1];
 
         if (token === 'null') {
-            return apiResponse.forbiddenResponse(res, 'Authorization details are required');
+            return apiResponse.forbiddenResponse(res, 'Not Logged in');
         }
-        
+
         const decoded = jwt.verify(token, config.USER_SECRET.toString());
-        const user = await User.findOne({ _id: decoded._id});
+        const user = await User.findOne({
+            _id: decoded._id
+        });
 
         if (!user) {
             return apiResponse.notFoundResponse(res, "User not found");
@@ -30,6 +32,7 @@ const auth = async (req, res, next) => {
         console.log("User auth", e);
         return apiResponse.errorResponse(res, e.toString());
     }
+
 }
 
 module.exports = auth
