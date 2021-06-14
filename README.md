@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to my submission for the TalentQL stage two problem👋</h1>
+<h1 align="center">TalentQL Application</h1>
 
 
 > This is a RESTful API that supports the posts functionality of Facebook.
@@ -23,6 +23,7 @@ npm install
 - Cloudinary
 - Sendgrid
 - Mongoose
+- Redis
 
 ## Usage
 
@@ -33,8 +34,8 @@ npm install
 
 ```
 PORT=YOUR PREFERRED PORT
-MONGO_URI=YOUR MONGO DB URL
-TOKEN_SECRET=YOUR TOKEN SECRET, IT COULD BE ANY RANDOM WORDS
+MONGODB_URL=YOUR MONGO DB URL
+USER_SECRET=YOUR TOKEN SECRET, IT COULD BE ANY RANDOM WORDS
 JWT_EXPIRATION=THE TIME IT WILL TAKE FOR THE JTW TO EXPIRE i.e 1d
 SENDGRID_API_KEY=YOUR SENDGRID API KEY
 EMAIL=THE EMAIL ATTACHED OF YOUR SENDGRID 
@@ -60,9 +61,7 @@ npm run test
 
 ## Author
 
-👤 **Onasanya Tunde**
+👤 **Daniel Atuma**
 
-- Website: https://onasanyatunde.codes
-- Twitter: [@simply_rammy](https://twitter.com/simply_rammy)
-- Github: [@rammyblog](https://github.com/rammyblog)
-- LinkedIn: [@onasanya-tunde](https://linkedin.com/in/onasanya-tunde)
+- Github: [@atdan](https://github.com/atdan)
+- LinkedIn: [@daniel_atuma](https://www.linkedin.com/in/daniel-atuma-a4496714a/)
