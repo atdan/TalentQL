@@ -1,8 +1,9 @@
 const {clearHash} = require('../services/cache')
 // dump cache only after the request is run
-module.exports = async (req, res, next) => {
+
+async (req, res, key, next) => {
 
     await next()
 
-    clearHash(req.user.id)
+    clearHash(key)
 }

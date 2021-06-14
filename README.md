@@ -4,7 +4,7 @@
 > This is a RESTful API that supports the posts functionality of Facebook.
 
 
-### 🏠 [API Documentation](https://documenter.getpostman.com/view/15213147/TzY4eZmf)
+### 🏠 [API Documentation]
 
 
 ## Install
@@ -15,7 +15,7 @@ npm install
 ```
 
 ## Documentation
-- Postman Documentation can be found here: https://documenter.getpostman.com/view/15213147/TzY4eZmf
+- Postman Documentation can be found here: 
 
 ## Technologies Used
 - Node
@@ -50,7 +50,7 @@ CLOUDINARY_SECRET=YOUR CLOUDINARY SECRET KEY
 npm run dev
 ```
 
-4. Refer to the docs located at https://documenter.getpostman.com/view/15213147/TzY4eZmf 
+4. Refer to the docs located at 
 
 
 ## Run tests
